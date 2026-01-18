@@ -82,7 +82,7 @@ class MainWindow(QMainWindow):
         self.about_window.raise_()
         self.about_window.activateWindow()
     def update_weather(self):
-        API_KEY="7aa1084b009e4681f2a8139ab4a027fc"
+        API_KEY="Ta clé API"
         City="Fes"
         URL=f"https://api.openweathermap.org/data/2.5/weather?q={City}&appid={API_KEY}&units=metric"
         try:
