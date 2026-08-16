@@ -5,6 +5,8 @@ from Music import MusicWindow
 from Map import MapWindow
 from Message import MessageWindow
 from About import AboutWindow
+from dotenv import load_dotenv
+import os
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -82,8 +84,9 @@ class MainWindow(QMainWindow):
         self.about_window.raise_()
         self.about_window.activateWindow()
     def update_weather(self):
-        API_KEY="Ta clé API"
-        City="Fes"
+        load_dotenv()
+        API_KEY=os.getenv("API_key")
+        City=os.getenv("CITY")
         URL=f"https://api.openweathermap.org/data/2.5/weather?q={City}&appid={API_KEY}&units=metric"
         try:
             response=requests.get(URL,timeout=5)
